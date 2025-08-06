@@ -1,0 +1,11 @@
+CREATE TABLE TransactionsPin(
+    Id BIGSERIAL PRIMARY KEY,
+    Pin VARCHAR(50) NOT NULL,
+    Attempt INT NOT NULL,
+    Blocked Bool NOT NULL,
+    CreatedAt TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdateAt TIMESTAMP,
+
+    FOREIGN KEY (FromWallet) REFERENCES Wallets(Id),
+    FOREIGN KEY (ToWallet) REFERENCES Wallets(Id)
+);
